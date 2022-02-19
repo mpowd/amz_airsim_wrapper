@@ -51,7 +51,7 @@
   <buildtool_depend>catkin</buildtool_depend>
   
   <depend>roscpp</depend>
-  <depend>fsd_skeleton</depend>
+  <depend>fsd_common_msgs</depend>
 
 
   <!-- The export tag contains other, unspecified, tags -->

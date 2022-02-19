@@ -9,7 +9,7 @@ add_compile_options(-std=c++11)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
   roscpp
-  fsd_skeleton
+  fsd_common_msgs
 )
 
 ## System dependencies are found with CMake's conventions
@@ -106,7 +106,7 @@ catkin_package(
 #  LIBRARIES amz_airsim_wrapper
   CATKIN_DEPENDS
     roscpp
-    fsd_skeleton
+    fsd_common_msgs
 #  DEPENDS system_lib
 )
 
@@ -123,7 +123,7 @@ ${catkin_INCLUDE_DIRS}
 
 ## Declare a C++ executable
 add_executable(${PROJECT_NAME}
-  amz_airsim_wrapper.cpp
+  src/amz_airsim_wrapper.cpp
 )
 
 ## Declare a C++ library
