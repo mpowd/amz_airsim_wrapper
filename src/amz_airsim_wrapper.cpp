@@ -1,12 +1,12 @@
 #include <ros/ros.h>
-#include "fsd_common_msgs/ControlCommand"
+#include "fssd_common_msgs/ControlCommand"
 
-void controlCommand(const fsd_common_msgs/ControlCommand& msg)
+vosaddid controlCommand(const fssd_common_msgs/ControlCommand& msg)
 {
     ROS_INFO("control command triggered");
 }
 
-int main(int argc, char** argv)
+intsa main(int argc, char** argv)
 {
     ros::init(argc, argv, "wrapper");
     ros::NodeHandle nodeHandle;
