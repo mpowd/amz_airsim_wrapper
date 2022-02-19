@@ -102,7 +102,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
-#  INCLUDE_DIRS include
+#   INCLUDE_DIRS include
 #  LIBRARIES amz_airsim_wrapper
   CATKIN_DEPENDS
     roscpp
@@ -114,17 +114,24 @@ catkin_package(
 ## Build ##
 ###########
 
-## Specify additional locations of header files
-## Your package locations should be listed before other locations
-include_directories(
-# include
-${catkin_INCLUDE_DIRS}
-)
-
 ## Declare a C++ executable
 add_executable(${PROJECT_NAME}
   src/amz_airsim_wrapper.cpp
 )
+
+target_link_libraries( 
+  amz_airsim_wrapper
+  ${catkin_LIBRARIES}
+)
+
+## Specify additional locations of header files
+## Your package locations should be listed before other locations
+include_directories(
+#  include
+${catkin_INCLUDE_DIRS}
+)
+
+
 
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
