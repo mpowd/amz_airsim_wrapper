@@ -10,6 +10,7 @@ add_compile_options(-std=c++11)
 find_package(catkin REQUIRED COMPONENTS
   roscpp
   fsd_common_msgs
+  fs_msgs
 )
 
 ## System dependencies are found with CMake's conventions
@@ -107,6 +108,7 @@ catkin_package(
   CATKIN_DEPENDS
     roscpp
     fsd_common_msgs
+    fs_msgs
 #  DEPENDS system_lib
 )
 

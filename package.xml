@@ -52,6 +52,7 @@
   
   <depend>roscpp</depend>
   <depend>fsd_common_msgs</depend>
+  <depend>fs_msgs</depend>
 
 
   <!-- The export tag contains other, unspecified, tags -->

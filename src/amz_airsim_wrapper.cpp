@@ -4,6 +4,10 @@
 #include "fsd_common_msgs/CarState.h"
 #include "fsd_common_msgs/Map.h"
 
+#include "fs_msgs/ControlCommand.h"
+#include "nav_msgs/Odometry.h"
+#include "fs_msgs/Track.h"
+
 
 void controlCommand(const fsd_common_msgs::ControlCommand& msg)
 {
@@ -35,5 +39,11 @@ int main(int argc, char** argv)
     ros::Subscriber subscriber3 = nodeHandle.subscribe("/estimation/slam/state", 10, state);
     ros::Subscriber subscriber4 = nodeHandle.subscribe("/estimation/slam/map", 10, map);
     
+    ros::Publisher publisher1 = nodeHandle.advertise<fs_msgs::ControlCommand>("/fsds/control_command", 10);
+    ros::Publisher publisher2 = nodeHandle.advertise<nav_msgs::Odometry>("/fsds/testing_only/odom", 10);
+    ros::Publisher publisher3 = nodeHandle.advertise<nav_msgs::Odometry>("/fsds/testing_only/odom", 10);
+    ros::Publisher publisher4 = nodeHandle.advertise<fs_msgs::Track>("/fsds/testing_only/track", 10);
+//     publisher1.publish(message);
+
     return 0;
 }
