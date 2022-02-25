@@ -77,7 +77,6 @@ void track(const fs_msgs::Track& msg)
                 break;
         }
     }
-    ROS_INFO("Cone Blue %d", map.cone_blue.size());
     mapPublisher.publish(map);
 }
 
