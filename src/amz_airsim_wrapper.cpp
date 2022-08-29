@@ -8,6 +8,8 @@
 #include "nav_msgs/Odometry.h"
 #include "fs_msgs/Track.h"
 #include "std_msgs/Float32.h"
+#include <tf/transform_broadcaster.h>
+
 
 ros::Publisher controlCommandPublisher;
 ros::Publisher velocityPublisher;
@@ -44,6 +46,23 @@ void odom(const nav_msgs::Odometry& msg)
     
     velocityPublisher.publish(velocityEstimate);
     statePublisher.publish(state);
+
+
+    static tf::TransformBroadcaster br;
+    tf::Transform transform;
+    transform.setOrigin(tf::Vector3(position.x, position.y, 0.0));
+    tf::Quaternion q;
+    q.setX(msg.pose.pose.orientation.x);
+    q.setY(msg.pose.pose.orientation.y);
+    q.setZ(msg.pose.pose.orientation.z);
+    q.setW(msg.pose.pose.orientation.w);
+    transform.setRotation(q);
+    try {
+        br.sendTransform(tf::StampedTransform(transform, ros::Time::now(), "odom", "fsds/FSCar"));
+    }
+    catch(tf::TransformException e) {
+        
+    }
 }
 
 void track(const fs_msgs::Track& msg)
