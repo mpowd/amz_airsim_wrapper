@@ -47,7 +47,6 @@ void odom(const nav_msgs::Odometry& msg)
     velocityPublisher.publish(velocityEstimate);
     statePublisher.publish(state);
 
-
     static tf::TransformBroadcaster br;
     tf::Transform transform;
     transform.setOrigin(tf::Vector3(position.x, position.y, 0.0));
@@ -58,6 +57,7 @@ void odom(const nav_msgs::Odometry& msg)
     q.setW(msg.pose.pose.orientation.w);
     transform.setRotation(q);
     try {
+        //publish transformation from fsds/FSCar to odom
         br.sendTransform(tf::StampedTransform(transform, ros::Time::now(), "odom", "fsds/FSCar"));
     }
     catch(tf::TransformException e) {
