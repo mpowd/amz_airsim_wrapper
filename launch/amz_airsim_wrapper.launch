@@ -1,7 +1,5 @@
 <launch>
-<!--
-  <include file="$(find fsds_ros_bridge)launch/fsds_ros_bridge.launch"/>
--->  
+  <!-- <include file="$(find fsds_ros_bridge)launch/fsds_ros_bridge.launch"/> -->
   <include file="$(find control_pure_pursuit)/launch/pure_pursuit.launch"/>
   
   <node name="amz_airsim_wrapper" pkg="amz_airsim_wrapper" type="amz_airsim_wrapper" output="screen">
